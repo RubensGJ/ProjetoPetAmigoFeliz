@@ -1,0 +1,620 @@
+html {
+    scroll-behavior: smooth;
+}
+
+/* Estilo básico do corpo da página */
+.fonte {
+    font-family: "Bubblegum Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.fonte_2 {
+    font-family: "Titan One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo do cabeçalho da página */
+/* Estilo do cabeçalho da página */
+.cabecalho {
+    background-color: #FF8346;
+    color: white;
+    padding: 15px 25px;
+    /* Reduz o padding para um cabeçalho mais compacto */
+    height: 68px;
+    /* Altura reduzida para um cabeçalho mais baixo */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Centraliza verticalmente os itens */
+    box-sizing: border-box;
+}
+
+/* Estilo da logo à esquerda */
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 2.2rem;
+    /* Fonte menor para a logo */
+}
+
+/* Estilo dos links no cabeçalho */
+.cabecalho a {
+    color: white;
+    text-decoration: none;
+    margin-left: 15px;
+    /* Espaçamento menor entre os links */
+    font-size: 1rem;
+    /* Fonte menor para os links */
+}
+
+/* Estilo do hover dos links */
+.cabecalho a:hover {
+    text-decoration: underline;
+    /* Adiciona sublinhado ao passar o mouse */
+}
+
+/* Estilo do contêiner principal que divide a página */
+.conteiner {
+    display: flex;
+    height: calc(100vh - 4rem);
+    /* Ajusta altura com base na altura do cabeçalho */
+}
+
+/* Estilo da coluna da esquerda */
+.lado-esquerdo {
+    position: relative;
+    /* Necessário para o posicionamento do pseudo-elemento */
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    z-index: 1;
+    /* Garante que o conteúdo fique acima da imagem */
+    overflow: hidden;
+    /* Corta tudo que sai dos limites do contêiner */
+}
+
+/* Adicionando a imagem de fundo inclinada como um pseudo-elemento */
+.lado-esquerdo::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    /* Ajuste para garantir que a imagem cubra toda a área ao ser rotacionada */
+    left: -50%;
+    /* Ajuste para garantir que a imagem cubra toda a área ao ser rotacionada */
+    width: 200%;
+    /* Expande a área para que cubra completamente o contêiner ao ser rotacionada */
+    height: 200%;
+    /* Expande a área para que cubra completamente o contêiner ao ser rotacionada */
+    background: url('./img/imagem3.png') repeat;
+    /* Insira o caminho correto da imagem */
+    background-size: 175px 175px;
+    background-position: center;
+    opacity: 0.1;
+    /* Mantém a opacidade do fundo */
+    transform: rotate(45deg);
+    /* Rotaciona a imagem em 45 graus */
+    z-index: -1;
+    /* Garante que a imagem fique atrás do conteúdo */
+}
+
+.lado-direito {
+    position: relative;
+    background-color: #FFD165;
+    flex: 1.2;
+    overflow: hidden;
+    /* Garante que o texto e a sobreposição não saiam da área do contêiner */
+}
+
+/* Estilo da imagem dentro da coluna da direita */
+.lado-direito img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    box-shadow: 0px 5px 15px black;
+    transition: transform 0.3s ease;
+    /* Adiciona uma transição suave ao efeito de zoom */
+}
+
+/* Efeito de zoom na imagem ao passar o mouse */
+.lado-direito:hover img {
+    transform: scale(1.1);
+    /* Aumenta a imagem ao passar o mouse */
+}
+
+/* Adiciona uma camada de sobreposição */
+.lado-direito::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    /* Cor de sobreposição preta com 30% de opacidade */
+    z-index: 1;
+    /* Garante que a sobreposição fique acima da imagem, mas abaixo do texto */
+    transition: background 0.3s ease;
+    /* Adiciona uma transição suave ao efeito de opacidade */
+}
+
+/* Aumenta a opacidade da sobreposição ao passar o mouse */
+.lado-direito:hover::before {
+    background: rgba(0, 0, 0, 0.7);
+    /* Aumenta a opacidade da sobreposição ao passar o mouse */
+}
+
+/* Estilo do texto sobre a imagem */
+.texto-sobre-imagem {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+    /* Fundo semi-transparente para melhor contraste */
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    opacity: 0;
+    /* Inicialmente escondido */
+    transition: opacity 0.3s ease;
+    /* Adiciona uma transição suave ao efeito de opacidade */
+    z-index: 2;
+    /* Garante que o texto fique acima da sobreposição */
+}
+
+/* Torna o texto visível ao passar o mouse */
+.lado-direito:hover .texto-sobre-imagem {
+    opacity: 1;
+    /* Torna o texto visível ao passar o mouse */
+}
+
+
+/* Estilo da imagem do logo */
+.logo img {
+    height: 3.5rem;
+    /* Ajusta para ocupar uma altura fixa */
+    margin-right: 0.5rem;
+    /* Margin ajustada com rem */
+}
+
+/* Estilo do subtítulo ("Pet Amigo Fiel") */
+.subtitulo {
+    font-size: 4rem;
+    /* Font size ajustado com rem */
+    color: #FF8346;
+    margin-bottom: -3rem;
+    /* Margin ajustada com rem */
+    margin-top: -2rem;
+    /* Margin ajustada com rem */
+    max-width: 100%;
+    /* Ajusta largura máxima */
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    /* Centraliza o subtítulo */
+}
+
+/* Estilo do texto principal (slogan) */
+.principal {
+    font-size: 4.5rem;
+    /* Font size ajustado com rem */
+    font-weight: bold;
+    color: #5B5022;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    /* Margin ajustada com rem */
+    margin-top: -1.5rem;
+    /* Margin ajustada com rem */
+    max-width: 400px;
+    /* Ajusta largura máxima */
+}
+
+
+/* Estilo do botão de chamada para ação */
+.botao {
+    background-color: #FF8346;
+    color: white;
+    padding: 1rem 2.5rem;
+    /* Padding ajustado com rem */
+    text-align: center;
+    font-weight: 900;
+    font-size: 1.5rem;
+    /* Font size ajustado com rem */
+    border-radius: 2rem;
+    /* Ajusta border-radius para rem */
+    text-decoration: none;
+    position: relative;
+    /* Permite usar top e bottom */
+    margin-top: 2rem;
+    /* Ajusta a margem superior */
+    top: -3rem;
+    /* Ajuste adicional para mover o botão para cima */
+}
+
+
+
+/* Estilo do título */
+.titulo {
+    font-size: 3rem;
+    /* Font size ajustado com rem */
+    margin-left: 0;
+    margin-right: auto;
+}
+
+
+/* Estilo da barra de navegação com os botões */
+.linkMeio {
+    display: flex;
+    /* Exibe os botões em linha */
+    justify-content: center;
+    /* Centraliza os botões */
+    align-items: center;
+    /* Centraliza verticalmente */
+    flex-grow: 1;
+    /* Faz o contêiner crescer para ocupar espaço no meio */
+    margin-right: auto;
+}
+
+/* Estilo geral para todos os botões */
+a.botao,
+.linkMeio a,
+.cabecalho a {
+    padding: 15px 30px;
+    /* Aumenta o espaçamento interno para botões maiores */
+    background-color: #FF8346;
+    /* Mantém a cor de fundo laranja */
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    /* Borda mais arredondada */
+    margin: 0 10px;
+    white-space: nowrap;
+    /* Evita quebra de linha nos botões */
+    font-size: 20px;
+    /* Aumenta o tamanho da fonte */
+    font-weight: bold;
+    /* Deixa o texto em negrito */
+    display: inline-block;
+    /* Garante que o botão seja tratado como bloco inline */
+    text-align: center;
+    /* Centraliza o texto */
+}
+
+/* Estilo adicional específico para botões na barra de navegação */
+.linkMeio a {
+    margin-left: 20px;
+    /* Ajusta o espaçamento entre os botões na barra */
+}
+
+/* Estilo específico para os links de login e cadastro */
+.cabecalho a {
+    padding: 10px 20px;
+    /* Ajuste para botões menores, se necessário */
+    margin-left: 15px;
+}
+
+.nova-secao {
+    height: 100vh;
+    /* Ocupa a altura total da tela do usuário */
+    display: flex;
+    /* Permite usar flexbox para alinhamento */
+    justify-content: center;
+    /* Centraliza horizontalmente o conteúdo */
+    align-items: center;
+    /* Centraliza verticalmente o conteúdo */
+    background-color: #f48b48;
+    /* Cor de fundo laranja */
+    position: relative;
+    /* Necessário para o posicionamento do pseudo-elemento */
+}
+
+.nova-secao::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('./img/imagem5.png');
+    background-repeat: repeat;
+    /* Faz a imagem se repetir */
+    background-size: 50px 50px;
+    /* Ajusta o tamanho da imagem de fundo (ajuste conforme necessário) */
+    background-position: 0 0;
+    /* Ajusta o posicionamento da imagem (opcional) */
+    opacity: 0.1;
+    /* Define a opacidade da imagem de fundo */
+    
+}
+
+.conteudo {
+    position: relative;
+    /* Garante que o conteúdo fique acima da imagem de fundo */
+    z-index: 2;
+    /* Garante que o conteúdo fique acima da imagem de fundo Tiravel!!!! */
+    display: flex;
+    justify-content: space-between;
+    /* Alinha a imagem e o texto nas extremidades opostas */
+    align-items: center;
+    /* Alinha verticalmente o conteúdo dentro do contêiner */
+    gap: 2rem;
+    /* Espaçamento entre a imagem e o texto */
+    max-width: 1200px;
+    /* Define uma largura máxima para o contêiner */
+    width: 100%;
+    /* Garante que o contêiner use a largura disponível */
+    padding: 0 2rem;
+    /* Adiciona padding horizontal */
+}
+
+
+/* Estilo da imagem ocupando o máximo verticalmente e cortando os lados */
+.imagem {
+    flex: 1;
+    /* Faz a imagem ocupar o máximo possível do lado esquerdo */
+    height: 100%;
+    /* Garante que a altura seja de 100% da nova seção */
+    overflow: hidden;
+    /* Garante que a imagem seja "cortada" se passar dos limites horizontais */
+}
+
+.imagem img {
+
+    width: auto;
+    border-radius: 50px;
+    /* Permite que a largura da imagem seja ajustada automaticamente */
+    height: 100%;
+    /* Faz a imagem ocupar 100% da altura do contêiner */
+    object-fit: cover;
+    /* Garante que a imagem cubra o contêiner sem distorção */
+    object-position: center;
+    /* Centraliza a imagem verticalmente e horizontalmente */
+
+
+}
+
+
+/* Estilo do contêiner de texto na nova seção */
+.texto {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* Centraliza verticalmente */
+    align-items: center;
+    /* Alinha o texto ao lado direito */
+    text-align: left;
+    /* Alinha o texto à direita */
+}
+
+/* Estilo do título na nova seção */
+.texto h2 {
+    font-size: 4rem;
+    /* Aumenta o tamanho da fonte do título */
+    color: #ffffff;
+    /* Cor do texto do título */
+    margin-bottom: 1.3rem;
+    /* Espaçamento abaixo do título */
+    max-width: 500px;
+    /* Largura máxima confortável */
+}
+
+/* Estilo do parágrafo na nova seção */
+.texto p {
+    font-size: 1.7rem;
+    /* Aumenta o tamanho da fonte do parágrafo */
+    color: #ffffff;
+    /* Cor do texto do parágrafo */
+    max-width: 500px;
+    /* Largura máxima confortável */
+    line-height: 1;
+    /* Espaçamento entre linhas */
+
+}
+
+/* <--------------------------------------------------------------- SEÇÃO 3 ------------------------------------------------------------------------>*/
+
+/* Estilo da seção 3 */
+.secao3 {
+    height: 50vh; /* A seção continua ocupando a altura total da tela */
+    display: flex; /* Usa o Flexbox para alinhar os itens */
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    align-items: center; /* Centraliza o conteúdo verticalmente */
+    background-color: #ffffff; /* Fundo laranja, igual à nova-secao */
+    padding: 2rem; /* Espaço ao redor do conteúdo */
+}
+
+/* Contêiner principal que divide o conteúdo em duas partes: texto e GIF */
+.conteudo-secao3 {
+    display: flex; /* Usa Flexbox para alinhar os itens em linha */
+    justify-content: space-between; /* Espaça o texto e o GIF */
+    align-items: center; /* Alinha os itens verticalmente */
+    width: 100%; /* O contêiner ocupa toda a largura */
+    max-width: 1200px; /* Limita a largura máxima */
+    gap: 2rem; /* Espaçamento entre o texto e o GIF */
+}
+
+/* Estilo do texto à esquerda */
+.texto-secao3 {
+    flex: 1; /* O texto ocupa 50% do espaço */
+    display: flex; /* Usa Flexbox para alinhar o conteúdo */
+    flex-direction: column; /* Coloca o título em cima e o subtítulo embaixo */
+    justify-content: center; /* Centraliza verticalmente */
+    align-items: center; /* Centraliza o texto horizontalmente */
+    text-align: center; /* Centraliza o texto */
+}
+
+/* Estilo do título da seção, alinhado com a nova-secao */
+.texto-secao3 h2 {
+    font-size: 4rem; /* Tamanho da fonte igual ao da nova-secao */
+    color: #fedd62; /* Cor do título igual ao da nova-secao */
+    margin-bottom: 1.5rem; /* Espaçamento abaixo do título */
+    max-width: 450px; /* Largura máxima confortável */
+    text-align: center;
+}
+
+/* Estilo do subtítulo, alinhado com a nova-secao */
+.texto-secao3 p {
+    font-size: 1.75rem; /* Tamanho da fonte igual ao da nova-secao */
+    color: #665931; /* Cor do subtítulo igual ao da nova-secao */
+    line-height: 1; /* Espaçamento entre linhas */
+    max-width: 450px; /* Largura máxima confortável */
+    text-align: center; /* Centraliza o texto */
+}
+
+/* Estilo do contêiner do GIF */
+.gif-secao3 {
+    flex: 1; /* O GIF ocupa 50% do espaço */
+    display: flex; /* Usa Flexbox para centralizar o GIF */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+}
+
+/* Estilo do GIF */
+.gif-secao3 img {
+    height: 50vh; /* O GIF ocupa 80% da altura da tela */
+    width:80%; /* A largura é ajustada automaticamente */
+    max-width: 50vw; /* Limita a largura máxima a 50% da largura da tela */
+    object-fit: cover; /* Corta os excessos horizontais para não ocupar muito espaço */
+    border-radius: 10000px; /* Adiciona bordas arredondadas ao GIF */
+}
+
+/*<-----------------------------------------------------------------------------SEÇÃO4----------------------------------->*/
+/* Estilo da seção 4 */
+
+.secao4 {
+    background-color: #ffd34e; /* Cor de fundo clara */
+    height: 50vh; /* Altura de 50% da altura da tela */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 1rem; /* Espaçamento interno */
+}
+
+.conteudo-secao4 {
+    display: flex;
+    flex-direction: column; /* Organiza o conteúdo verticalmente */
+    align-items: center; /* Centraliza horizontalmente o conteúdo */
+    text-align: center; /* Centraliza o texto */
+    width: 100%;
+}
+
+/* Título principal da seção 4 */
+.titulo-secao4 {
+    font-size: 2.5rem; /* Tamanho do título */
+    color: #FF8346; /* Cor do título */
+    margin-bottom: 1.5rem; /* Espaçamento abaixo do título */
+}
+
+/* Contêiner para as imagens e descrições */
+.imagens-pequenas {
+    display: flex;
+    justify-content: space-between; /* Espaça as imagens igualmente */
+    gap: 1rem; /* Espaçamento entre as imagens */
+    max-width: 1000px; /* Define uma largura máxima */
+    width: 100%; /* Garante que o contêiner use a largura disponível */
+}
+
+.imagem.pequena {
+    display: flex;
+    flex-direction: column; /* Organiza a imagem, o título e a descrição verticalmente */
+    align-items: center; /* Centraliza horizontalmente cada imagem */
+    flex: 1;
+}
+
+.imagem.pequena img {
+    width: 120px; /* Largura das imagens pequenas */
+    height: 100; /* Mantém a proporção das imagens */
+    margin-bottom: 1rem; /* Espaçamento abaixo da imagem */
+    
+}
+
+/* Subtítulo abaixo de cada imagem */
+.subtitulo-imagem {
+    font-size: 1.5rem; /* Tamanho do subtítulo */
+    color: #FF8346; /* Cor do subtítulo */
+    margin-bottom: 0.5rem; /* Espaçamento abaixo do subtítulo */
+}
+
+/* Descrição abaixo de cada subtítulo */
+.descricao-imagem {
+    font-size: 1rem; /* Tamanho do texto da descrição */
+    color: #5B5022; /* Cor do texto da descrição */
+    text-align: center; /* Centraliza o texto */
+    max-width: 200px; /* Largura máxima da descrição */
+}
+
+/*<--------------------------------------------------------------------SECAO 5 ----------------------------->*/
+
+.seção5 {
+    height: 100vh; /* Define a altura da seção em 100% da altura da viewport */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+}
+
+.imagem-contato {
+    position: relative;
+    text-align: center;
+    height: 80vh; /* Define a altura da área da imagem em 60% da viewport */
+    width: 100%;
+}
+
+.imagem-contato img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que a imagem ocupe todo o espaço, cortando se necessário */
+}
+
+.imagem-contato h2 {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    font-size: 5vh; /* Usa vh para que o texto responda ao tamanho da tela */
+    color: #ff7033;
+    font-weight: bold;
+}
+
+.informacoes-contato {
+    background-color: #ff7033;
+    height: 20vh; /* Define a altura da área de informações em 40% da viewport */
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+
+.informacoes-contato .info {
+    color: white;
+    text-align: center;
+}
+
+.informacoes-contato h4 {
+    font-size: 3vh; /* Usa vh para texto responsivo */
+    margin-bottom: 10px;
+}
+
+.informacoes-contato p {
+    font-size: 2.5vh; /* Usa vh para texto responsivo */
+}
