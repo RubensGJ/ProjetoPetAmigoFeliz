@@ -1,128 +1,165 @@
 html {
     scroll-behavior: smooth;
+    /* Define rolagem suave na página */
 }
 
 /* Estilo básico do corpo da página */
 .fonte {
     font-family: "Bubblegum Sans", sans-serif;
+    /* Define a fonte principal da página */
     font-weight: 400;
+    /* Define o peso da fonte */
     font-style: normal;
+    /* Define o estilo da fonte como normal */
 }
 
 .fonte_2 {
     font-family: "Titan One", sans-serif;
+    /* Define outra fonte para ser usada */
     font-weight: 400;
+    /* Define o peso da fonte */
     font-style: normal;
+    /* Define o estilo da fonte como normal */
 }
 
 body {
     font-family: Arial, sans-serif;
+    /* Define a fonte do corpo da página */
     margin: 0;
+    /* Remove a margem padrão da página */
     padding: 0;
+    /* Remove o padding padrão da página */
 }
 
 /* Estilo do cabeçalho da página */
-/* Estilo do cabeçalho da página */
 .cabecalho {
     background-color: #FF8346;
+    /* Define a cor de fundo do cabeçalho */
     color: white;
+    /* Define a cor do texto do cabeçalho */
     padding: 15px 25px;
-    /* Reduz o padding para um cabeçalho mais compacto */
+    /* Define o espaçamento interno (padding) */
     height: 68px;
-    /* Altura reduzida para um cabeçalho mais baixo */
+    /* Define a altura do cabeçalho */
     display: flex;
+    /* Usa flexbox para layout dos elementos */
     justify-content: space-between;
+    /* Distribui os itens ao longo do eixo principal */
     align-items: center;
-    /* Centraliza verticalmente os itens */
+    /* Alinha os itens verticalmente ao centro */
     box-sizing: border-box;
+    /* Inclui o padding na largura e altura do elemento */
 }
 
 /* Estilo da logo à esquerda */
 .logo {
     display: flex;
+    /* Usa flexbox para organizar os itens dentro do logo */
     align-items: center;
+    /* Alinha os itens verticalmente */
     font-size: 2.2rem;
-    /* Fonte menor para a logo */
+    /* Define o tamanho da fonte da logo */
 }
 
 /* Estilo dos links no cabeçalho */
 .cabecalho a {
     color: white;
+    /* Define a cor dos links no cabeçalho */
     text-decoration: none;
+    /* Remove o sublinhado dos links */
     margin-left: 15px;
-    /* Espaçamento menor entre os links */
+    /* Define o espaçamento à esquerda dos links */
     font-size: 1rem;
-    /* Fonte menor para os links */
+    /* Define o tamanho da fonte dos links */
 }
 
 /* Estilo do hover dos links */
 .cabecalho a:hover {
     text-decoration: underline;
-    /* Adiciona sublinhado ao passar o mouse */
+    /* Adiciona sublinhado ao passar o mouse sobre os links */
 }
 
 /* Estilo do contêiner principal que divide a página */
 .conteiner {
     display: flex;
+    /* Usa flexbox para organizar os itens */
     height: calc(100vh - 4rem);
-    /* Ajusta altura com base na altura do cabeçalho */
+    /* Define a altura com base na altura da viewport, menos o cabeçalho */
 }
 
 /* Estilo da coluna da esquerda */
 .lado-esquerdo {
     position: relative;
-    /* Necessário para o posicionamento do pseudo-elemento */
+    /* Define a posição como relativa para usar pseudo-elementos */
     flex: 1;
+    /* O contêiner ocupa 50% da tela */
     display: flex;
+    /* Usa flexbox para organizar os itens */
     justify-content: center;
+    /* Centraliza os itens horizontalmente */
     align-items: center;
+    /* Centraliza os itens verticalmente */
     flex-direction: column;
+    /* Organiza os itens em coluna */
     padding: 20px;
+    /* Define o espaçamento interno (padding) */
     z-index: 1;
     /* Garante que o conteúdo fique acima da imagem */
     overflow: hidden;
-    /* Corta tudo que sai dos limites do contêiner */
+    /* Corta qualquer conteúdo que ultrapasse os limites do contêiner */
 }
 
 /* Adicionando a imagem de fundo inclinada como um pseudo-elemento */
 .lado-esquerdo::before {
     content: "";
+    /* Cria um pseudo-elemento vazio */
     position: absolute;
+    /* Define a posição como absoluta */
     top: -50%;
-    /* Ajuste para garantir que a imagem cubra toda a área ao ser rotacionada */
+    /* Posiciona o pseudo-elemento acima do contêiner */
     left: -50%;
-    /* Ajuste para garantir que a imagem cubra toda a área ao ser rotacionada */
+    /* Posiciona o pseudo-elemento à esquerda do contêiner */
     width: 200%;
-    /* Expande a área para que cubra completamente o contêiner ao ser rotacionada */
+    /* Define a largura do pseudo-elemento */
     height: 200%;
-    /* Expande a área para que cubra completamente o contêiner ao ser rotacionada */
-    background: url('./img/imagem3.png') repeat;
-    /* Insira o caminho correto da imagem */
+    /* Define a altura do pseudo-elemento */
+    background: url('/img/imagem3.png') repeat;
+    /* Define a imagem de fundo do pseudo-elemento */
     background-size: 175px 175px;
+    /* Define o tamanho da imagem de fundo */
     background-position: center;
+    /* Centraliza a imagem de fundo */
     opacity: 0.1;
-    /* Mantém a opacidade do fundo */
+    /* Define a opacidade da imagem de fundo */
     transform: rotate(45deg);
-    /* Rotaciona a imagem em 45 graus */
+    /* Rotaciona o pseudo-elemento em 45 graus */
     z-index: -1;
-    /* Garante que a imagem fique atrás do conteúdo */
+    /* Garante que o pseudo-elemento fique atrás do conteúdo */
 }
 
 .lado-direito {
     position: relative;
+    /* Define a posição como relativa */
     background-color: #FFD165;
+    /* Define a cor de fundo da coluna direita */
     flex: 1.2;
+    /* O contêiner ocupa 60% da tela */
     overflow: hidden;
-    /* Garante que o texto e a sobreposição não saiam da área do contêiner */
+    /* Garante que o conteúdo não ultrapasse os limites do contêiner */
 }
 
 /* Estilo da imagem dentro da coluna da direita */
 .lado-direito img {
     width: 100%;
+    /* Define a largura da imagem para ocupar todo o espaço */
     height: 100%;
+    /* Define a altura da imagem para ocupar todo o espaço */
     object-fit: cover;
+    /* Garante que a imagem cubra o contêiner sem distorção */
     display: block;
+    /* Exibe a imagem como um bloco */
     box-shadow: 0px 5px 15px black;
+    /* Adiciona uma sombra à imagem */
     transition: transform 0.3s ease;
     /* Adiciona uma transição suave ao efeito de zoom */
 }
@@ -136,15 +173,21 @@ body {
 /* Adiciona uma camada de sobreposição */
 .lado-direito::before {
     content: "";
+    /* Cria um pseudo-elemento vazio */
     position: absolute;
+    /* Define a posição como absoluta */
     top: 0;
+    /* Posiciona o pseudo-elemento no topo */
     left: 0;
+    /* Posiciona o pseudo-elemento à esquerda */
     width: 100%;
+    /* Define a largura da sobreposição */
     height: 100%;
+    /* Define a altura da sobreposição */
     background: rgba(0, 0, 0, 0.3);
-    /* Cor de sobreposição preta com 30% de opacidade */
+    /* Define uma sobreposição preta com 30% de opacidade */
     z-index: 1;
-    /* Garante que a sobreposição fique acima da imagem, mas abaixo do texto */
+    /* Garante que a sobreposição fique acima da imagem */
     transition: background 0.3s ease;
     /* Adiciona uma transição suave ao efeito de opacidade */
 }
@@ -158,24 +201,37 @@ body {
 /* Estilo do texto sobre a imagem */
 .texto-sobre-imagem {
     position: absolute;
+    /* Define a posição como absoluta */
     top: 0;
+    /* Posiciona o texto no topo */
     left: 0;
+    /* Posiciona o texto à esquerda */
     width: 100%;
+    /* Define a largura do texto para ocupar todo o contêiner */
     height: 100%;
+    /* Define a altura do texto para ocupar todo o contêiner */
     text-align: center;
+    /* Centraliza o texto horizontalmente */
     display: flex;
+    /* Usa flexbox para organizar o texto */
     flex-direction: column;
+    /* Organiza os elementos do texto em coluna */
     justify-content: center;
+    /* Centraliza o texto verticalmente */
     align-items: center;
+    /* Centraliza o texto horizontalmente */
     background: rgba(0, 0, 0, 0.5);
-    /* Fundo semi-transparente para melhor contraste */
+    /* Adiciona um fundo semitransparente ao texto */
     color: white;
+    /* Define a cor do texto como branca */
     padding: 20px;
+    /* Adiciona um espaçamento interno ao texto */
     box-sizing: border-box;
+    /* Inclui padding e borda no tamanho total */
     opacity: 0;
-    /* Inicialmente escondido */
+    /* Inicialmente, o texto está invisível */
     transition: opacity 0.3s ease;
-    /* Adiciona uma transição suave ao efeito de opacidade */
+    /* Adiciona uma transição suave à opacidade */
     z-index: 2;
     /* Garante que o texto fique acima da sobreposição */
 }
@@ -333,7 +389,7 @@ a.botao,
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('./img/imagem5.png');
+    background-image: url('/img/imagem5.png');
     background-repeat: repeat;
     /* Faz a imagem se repetir */
     background-size: 50px 50px;
@@ -342,7 +398,7 @@ a.botao,
     /* Ajusta o posicionamento da imagem (opcional) */
     opacity: 0.1;
     /* Define a opacidade da imagem de fundo */
-    
+
 }
 
 .conteudo {
@@ -434,187 +490,299 @@ a.botao,
 
 /* Estilo da seção 3 */
 .secao3 {
-    height: 50vh; /* A seção continua ocupando a altura total da tela */
-    display: flex; /* Usa o Flexbox para alinhar os itens */
-    justify-content: center; /* Centraliza o conteúdo horizontalmente */
-    align-items: center; /* Centraliza o conteúdo verticalmente */
-    background-color: #ffffff; /* Fundo laranja, igual à nova-secao */
-    padding: 2rem; /* Espaço ao redor do conteúdo */
+    height: 50vh;
+    /* A seção continua ocupando a altura total da tela */
+    display: flex;
+    /* Usa o Flexbox para alinhar os itens */
+    justify-content: center;
+    /* Centraliza o conteúdo horizontalmente */
+    align-items: center;
+    /* Centraliza o conteúdo verticalmente */
+    background-color: #ffffff;
+    /* Fundo laranja, igual à nova-secao */
+    padding: 2rem;
+    /* Espaço ao redor do conteúdo */
 }
 
 /* Contêiner principal que divide o conteúdo em duas partes: texto e GIF */
 .conteudo-secao3 {
-    display: flex; /* Usa Flexbox para alinhar os itens em linha */
-    justify-content: space-between; /* Espaça o texto e o GIF */
-    align-items: center; /* Alinha os itens verticalmente */
-    width: 100%; /* O contêiner ocupa toda a largura */
-    max-width: 1200px; /* Limita a largura máxima */
-    gap: 2rem; /* Espaçamento entre o texto e o GIF */
+    display: flex;
+    /* Usa Flexbox para alinhar os itens em linha */
+    justify-content: space-between;
+    /* Espaça o texto e o GIF */
+    align-items: center;
+    /* Alinha os itens verticalmente */
+    width: 100%;
+    /* O contêiner ocupa toda a largura */
+    max-width: 1200px;
+    /* Limita a largura máxima */
+    gap: 2rem;
+    /* Espaçamento entre o texto e o GIF */
 }
 
 /* Estilo do texto à esquerda */
 .texto-secao3 {
-    flex: 1; /* O texto ocupa 50% do espaço */
-    display: flex; /* Usa Flexbox para alinhar o conteúdo */
-    flex-direction: column; /* Coloca o título em cima e o subtítulo embaixo */
-    justify-content: center; /* Centraliza verticalmente */
-    align-items: center; /* Centraliza o texto horizontalmente */
-    text-align: center; /* Centraliza o texto */
+    flex: 1;
+    /* O texto ocupa 50% do espaço */
+    display: flex;
+    /* Usa Flexbox para alinhar o conteúdo */
+    flex-direction: column;
+    /* Coloca o título em cima e o subtítulo embaixo */
+    justify-content: center;
+    /* Centraliza verticalmente */
+    align-items: center;
+    /* Centraliza o texto horizontalmente */
+    text-align: center;
+    /* Centraliza o texto */
 }
 
 /* Estilo do título da seção, alinhado com a nova-secao */
 .texto-secao3 h2 {
-    font-size: 4rem; /* Tamanho da fonte igual ao da nova-secao */
-    color: #fedd62; /* Cor do título igual ao da nova-secao */
-    margin-bottom: 1.5rem; /* Espaçamento abaixo do título */
-    max-width: 450px; /* Largura máxima confortável */
+    font-size: 4rem;
+    /* Tamanho da fonte igual ao da nova-secao */
+    color: #fedd62;
+    /* Cor do título igual ao da nova-secao */
+    margin-bottom: 1.5rem;
+    /* Espaçamento abaixo do título */
+    max-width: 450px;
+    /* Largura máxima confortável */
     text-align: center;
 }
 
 /* Estilo do subtítulo, alinhado com a nova-secao */
 .texto-secao3 p {
-    font-size: 1.75rem; /* Tamanho da fonte igual ao da nova-secao */
-    color: #665931; /* Cor do subtítulo igual ao da nova-secao */
-    line-height: 1; /* Espaçamento entre linhas */
-    max-width: 450px; /* Largura máxima confortável */
-    text-align: center; /* Centraliza o texto */
+    font-size: 1.75rem;
+    /* Tamanho da fonte igual ao da nova-secao */
+    color: #665931;
+    /* Cor do subtítulo igual ao da nova-secao */
+    line-height: 1;
+    /* Espaçamento entre linhas */
+    max-width: 450px;
+    /* Largura máxima confortável */
+    text-align: center;
+    /* Centraliza o texto */
 }
 
 /* Estilo do contêiner do GIF */
 .gif-secao3 {
-    flex: 1; /* O GIF ocupa 50% do espaço */
-    display: flex; /* Usa Flexbox para centralizar o GIF */
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
+    flex: 1;
+    /* O GIF ocupa 50% do espaço */
+    display: flex;
+    /* Usa Flexbox para centralizar o GIF */
+    justify-content: center;
+    /* Centraliza horizontalmente */
+    align-items: center;
+    /* Centraliza verticalmente */
 }
 
 /* Estilo do GIF */
 .gif-secao3 img {
-    height: 50vh; /* O GIF ocupa 80% da altura da tela */
-    width:80%; /* A largura é ajustada automaticamente */
-    max-width: 50vw; /* Limita a largura máxima a 50% da largura da tela */
-    object-fit: cover; /* Corta os excessos horizontais para não ocupar muito espaço */
-    border-radius: 10000px; /* Adiciona bordas arredondadas ao GIF */
+    height: 50vh;
+    /* O GIF ocupa 80% da altura da tela */
+    width: 80%;
+    /* A largura é ajustada automaticamente */
+    max-width: 50vw;
+    /* Limita a largura máxima a 50% da largura da tela */
+    object-fit: cover;
+    /* Corta os excessos horizontais para não ocupar muito espaço */
+    border-radius: 10000px;
+    /* Adiciona bordas arredondadas ao GIF */
 }
 
 /*<-----------------------------------------------------------------------------SEÇÃO4----------------------------------->*/
 /* Estilo da seção 4 */
 
 .secao4 {
-    background-color: #ffd34e; /* Cor de fundo clara */
-    height: 50vh; /* Altura de 50% da altura da tela */
+    background-color: #ffd34e;
+    /* Cor de fundo clara */
+    height: 50vh;
+    /* Altura de 50% da altura da tela */
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2rem 1rem; /* Espaçamento interno */
+    padding: 2rem 1rem;
+    /* Espaçamento interno */
 }
 
 .conteudo-secao4 {
     display: flex;
-    flex-direction: column; /* Organiza o conteúdo verticalmente */
-    align-items: center; /* Centraliza horizontalmente o conteúdo */
-    text-align: center; /* Centraliza o texto */
+    flex-direction: column;
+    /* Organiza o conteúdo verticalmente */
+    align-items: center;
+    /* Centraliza horizontalmente o conteúdo */
+    text-align: center;
+    /* Centraliza o texto */
     width: 100%;
 }
 
 /* Título principal da seção 4 */
 .titulo-secao4 {
-    font-size: 2.5rem; /* Tamanho do título */
-    color: #FF8346; /* Cor do título */
-    margin-bottom: 1.5rem; /* Espaçamento abaixo do título */
+    font-size: 2.5rem;
+    /* Tamanho do título */
+    color: #FF8346;
+    /* Cor do título */
+    margin-bottom: 1.5rem;
+    /* Espaçamento abaixo do título */
 }
 
 /* Contêiner para as imagens e descrições */
 .imagens-pequenas {
     display: flex;
-    justify-content: space-between; /* Espaça as imagens igualmente */
-    gap: 1rem; /* Espaçamento entre as imagens */
-    max-width: 1000px; /* Define uma largura máxima */
-    width: 100%; /* Garante que o contêiner use a largura disponível */
+    justify-content: space-between;
+    /* Espaça as imagens igualmente */
+    gap: 1rem;
+    /* Espaçamento entre as imagens */
+    max-width: 1000px;
+    /* Define uma largura máxima */
+    width: 100%;
+    /* Garante que o contêiner use a largura disponível */
 }
 
 .imagem.pequena {
     display: flex;
-    flex-direction: column; /* Organiza a imagem, o título e a descrição verticalmente */
-    align-items: center; /* Centraliza horizontalmente cada imagem */
+    flex-direction: column;
+    /* Organiza a imagem, o título e a descrição verticalmente */
+    align-items: center;
+    /* Centraliza horizontalmente cada imagem */
     flex: 1;
 }
 
 .imagem.pequena img {
-    width: 120px; /* Largura das imagens pequenas */
-    height: 100; /* Mantém a proporção das imagens */
-    margin-bottom: 1rem; /* Espaçamento abaixo da imagem */
-    
+    width: 120px;
+    /* Largura das imagens pequenas */
+    height: 100;
+    /* Mantém a proporção das imagens */
+    margin-bottom: 1rem;
+    /* Espaçamento abaixo da imagem */
+
 }
 
 /* Subtítulo abaixo de cada imagem */
 .subtitulo-imagem {
-    font-size: 1.5rem; /* Tamanho do subtítulo */
-    color: #FF8346; /* Cor do subtítulo */
-    margin-bottom: 0.5rem; /* Espaçamento abaixo do subtítulo */
+    font-size: 1.5rem;
+    /* Tamanho do subtítulo */
+    color: #FF8346;
+    /* Cor do subtítulo */
+    margin-bottom: 0.5rem;
+    /* Espaçamento abaixo do subtítulo */
 }
 
 /* Descrição abaixo de cada subtítulo */
 .descricao-imagem {
-    font-size: 1rem; /* Tamanho do texto da descrição */
-    color: #5B5022; /* Cor do texto da descrição */
-    text-align: center; /* Centraliza o texto */
-    max-width: 200px; /* Largura máxima da descrição */
+    font-size: 1rem;
+    /* Tamanho do texto da descrição */
+    color: #5B5022;
+    /* Cor do texto da descrição */
+    text-align: center;
+    /* Centraliza o texto */
+    max-width: 200px;
+    /* Largura máxima da descrição */
 }
 
 /*<--------------------------------------------------------------------SECAO 5 ----------------------------->*/
 
 .seção5 {
-    height: 100vh; /* Define a altura da seção em 100% da altura da viewport */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0;
-}
-
-.imagem-contato {
     position: relative;
-    text-align: center;
-    height: 80vh; /* Define a altura da área da imagem em 60% da viewport */
-    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    height: 80vh;
+    /* A imagem ocupa toda a altura da tela */
+    overflow: hidden;
+    padding: 20px;
+    /* Adiciona um espaçamento para não encostar nas bordas */
 }
 
 .imagem-contato img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Garante que a imagem ocupe todo o espaço, cortando se necessário */
+    object-fit: cover;
+    /* A imagem preenche toda a seção sem distorção */
+    z-index: -1;
+    /* Coloca a imagem atrás do conteúdo */
 }
 
 .imagem-contato h2 {
-    position: absolute;
-    top: 10%;
-    left: 10%;
-    font-size: 5vh; /* Usa vh para que o texto responda ao tamanho da tela */
-    color: #ff7033;
-    font-weight: bold;
+    color: white;
+    font-size: 36px;
+    text-align: right;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    /* Deixa o texto legível */
+    margin-bottom: 20px;
+    z-index: 1;
 }
 
 .informacoes-contato {
-    background-color: #ff7033;
-    height: 20vh; /* Define a altura da área de informações em 40% da viewport */
-    width: 100%;
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    max-width: 400px;
+    text-align: left;
+    margin-right: 20px;
+    /* Espaçamento da borda direita */
+    margin-bottom: 20px;
+    /* Espaçamento da borda inferior */
+}
+
+.info {
+    margin-bottom: 20px;
+}
+
+.info h4 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.info p {
+    margin: 0;
+    color: #333;
+    font-size: 16px;
+}
+
+/*------------------------------------------------RODAPE------------------------------------------------*/
+
+.rodape {
+    background: #FF8346;
+    color: #fff;
+    text-align: center;
     display: flex;
     justify-content: space-around;
-    align-items: center;
-    
+    flex-wrap: wrap;
+    height: 200px;
 }
 
-.informacoes-contato .info {
-    color: white;
-    text-align: center;
+.coluna {
+    margin: 10px;
+    flex: 1;
+    min-width: 150px;
 }
 
-.informacoes-contato h4 {
-    font-size: 3vh; /* Usa vh para texto responsivo */
-    margin-bottom: 10px;
+.coluna ul {
+    list-style: none;
+    padding: 0;
 }
 
-.informacoes-contato p {
-    font-size: 2.5vh; /* Usa vh para texto responsivo */
+.coluna ul li {
+    margin: 5px 0;
+}
+
+.coluna a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.social-icons img {
+    width: 20px;
+    margin: 0 5px;
+}
+
+@media (max-width: 600px) {
+    .rodape {
+        flex-direction: column;
+    }
 }
